@@ -54,7 +54,7 @@ export default class BalloonFactory {
         }
 
         if (addToLog) {
-            this.scene.chatLog.addMessage(penguin.id, penguin.username, text)
+            this.scene.chatLog.addMessage(penguin.id, penguin.displayName, text)
         }
 
         if (!penguin.visible) {

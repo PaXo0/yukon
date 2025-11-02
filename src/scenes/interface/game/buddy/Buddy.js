@@ -214,10 +214,10 @@ export default class Buddy extends BaseWidget {
 
         return penguins.map(penguin => {
             // Map penguin to buddy item object
-            return { id: penguin.id, username: penguin.username }
+            return { id: penguin.id, username: penguin.displayName }
         }).sort((a, b) => {
             // Then sort by username
-            return a.username.toLowerCase().localeCompare(b.username.toLowerCase())
+            return a.displayName.toLowerCase().localeCompare(b.displayName.toLowerCase())
         })
     }
 

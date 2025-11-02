@@ -185,7 +185,7 @@ export default class PlayerCard extends BaseWidget {
 
     /* START-USER-CODE */
 
-    show(playerId, username) {
+    show(playerId) {
         if (this.visible && playerId === this.id) {
             return
         }
@@ -194,7 +194,6 @@ export default class PlayerCard extends BaseWidget {
 
         this.id = playerId
 
-        this.setUsername(username)
         this.updateButtons()
 
         if (playerId in this.world.room.penguins) {
@@ -214,14 +213,14 @@ export default class PlayerCard extends BaseWidget {
     }
 
     updatePlayer(player) {
-        const { id, username, joinTime, isClient } = player
+        const { id, displayName, joinTime, isClient } = player
 
         if (id !== this.id) {
             return
         }
 
         this.updateElements({
-            username,
+            displayName,
             coins: isClient ? this.world.client.coins : 0,
             isClient
         })
@@ -233,8 +232,8 @@ export default class PlayerCard extends BaseWidget {
         this.inventorySort.closeMenu()
     }
 
-    updateElements({ username, coins, isClient }) {
-        this.setUsername(username)
+    updateElements({ displayName, coins, isClient }) {
+        this.setUsername(displayName)
         this.setCoins(coins)
 
         this.inventory.visible = isClient
@@ -246,8 +245,8 @@ export default class PlayerCard extends BaseWidget {
         }
     }
 
-    setUsername(username) {
-        this.username.text = username
+    setUsername(displayName) {
+        this.username.text = displayName
     }
 
     setCoins(coins) {
@@ -327,7 +326,7 @@ export default class PlayerCard extends BaseWidget {
         this.id = null
 
         this.updateElements({
-            username: '',
+            displayName: '',
             coins: 0,
             isClient: false
         })

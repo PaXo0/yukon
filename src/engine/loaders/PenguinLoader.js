@@ -43,7 +43,10 @@ export default class PenguinLoader {
     addName(penguin) {
         let x = penguin.x
         let y = penguin.y + 40
-        let nameTag = penguin.room.add.text(x, y, penguin.username, this.nameStyle)
+
+        let nameTag
+
+        nameTag = penguin.room.add.text(x, y, penguin.displayName, this.nameStyle)
 
         nameTag.setOrigin(0.5)
         nameTag.depth = penguin.depth + 2000 // Keep nametag above everything else
@@ -60,11 +63,11 @@ export default class PenguinLoader {
             hitAreaCallback: Phaser.Geom.Ellipse.Contains
         })
 
-        penguin.on('pointerup', () => this.onPenguinClick(penguin.id, penguin.username))
+        penguin.on('pointerup', () => this.onPenguinClick(penguin.id))
     }
 
-    onPenguinClick(id, username) {
-        this.world.interface.showCard(id, username)
+    onPenguinClick(id) {
+        this.world.interface.showCard(id)
     }
 
 }

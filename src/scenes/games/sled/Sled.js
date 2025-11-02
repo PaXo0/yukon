@@ -358,7 +358,7 @@ export default class Sled extends GameScene {
      * @param {number} index - Player index, used as ID
      */
     addPlayer(playerData, index) {
-        const isMyPlayer = this.world.isClientUsername(playerData.username)
+        const isMyPlayer = this.world.isClientDisplayName(playerData.username)
 
         const playerClass = isMyPlayer ? ClientSledPlayer : SledPlayer
 

@@ -18,6 +18,7 @@ export default class ClientController {
 
         this.id = user.id
         this.joinTime = user.joinTime
+		this.email_verified = user.email_verified
 
         this.iglooOpen = false
 

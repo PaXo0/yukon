@@ -118,6 +118,10 @@ export default class WorldController extends BaseScene {
         return username.toLowerCase() === this.client.penguin.username.toLowerCase()
     }
 
+    isClientDisplayName(displayName) {
+        return displayName.toLowerCase() === this.client.penguin.displayName.toLowerCase()
+    }
+
     getColor(id) {
         return this.interface.getColor(id)
     }

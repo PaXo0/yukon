@@ -124,6 +124,10 @@ export default class RoomScene extends BaseUnloadableScene {
         return Object.values(this.penguins).find(penguin => penguin.username === username)
     }
 
+    getPenguinByDisplayName(displayName) {
+        return Object.values(this.penguins).find(penguin => penguin.displayName === displayName)
+    }
+
     setTables(tables) {
         this.tables = tables
 

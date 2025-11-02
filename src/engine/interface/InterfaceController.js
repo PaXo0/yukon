@@ -141,8 +141,8 @@ export default class InterfaceController extends BaseScene {
         }
     }
 
-    showCard(playerId, username) {
-        this.main.playerCard.show(playerId, username)
+    showCard(playerId) {
+        this.main.playerCard.show(playerId)
     }
 
     /**
