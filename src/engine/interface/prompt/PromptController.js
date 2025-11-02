@@ -52,8 +52,23 @@ export default class PromptController {
         this.coin.show(coins)
     }
 
-    showError(text, buttonText = 'Okay', callback = () => this.error.close()) {
+    /*showError(text, buttonText = 'Okay', callback = () => this.error.close()) {
         this.error.show(text, buttonText, callback)
+    }*/
+    showError(
+        text,
+        buttonText = 'Okay',
+        callback = () => (this.error.visible = false),
+    ) {
+        console.log(`showError: ${text}`);
+        this.error.show(text, buttonText, callback)
+        if(this.window.spinner.visible) this.window.visible = false
+
+        if (text == "Server is full!") {
+            return this.error.show(text, 'Reload', () => {
+                location.reload();
+            });
+        }
     }
 
     showItem(item) {

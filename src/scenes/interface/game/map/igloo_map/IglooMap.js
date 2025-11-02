@@ -431,7 +431,7 @@ export default class IglooMap extends BaseContainer {
 
         /* START-USER-CTR-CODE */
 
-        username.text = this.world.client.penguin.displayname
+        username.text = this.world.client.penguin.displayName
 
         this.tween = scene.tweens.add({
             targets: this.spinner,
